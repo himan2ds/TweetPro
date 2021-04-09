@@ -12,10 +12,12 @@ ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
 def home_view(request,*args,**kwargs):
     # print(args)
+    print(request.user)
     return render(request,"pages/home.html",context={},status=200)
     # return HttpResponse('<h1>"Hello World"</h>')
 
 def tweet_create_view(request,*args,**kwargs):
+    # print(abc)
     form = TweetForm(request.POST or None)
     next_url = request.POST.get("next") or None
     print("request",request.is_ajax())
